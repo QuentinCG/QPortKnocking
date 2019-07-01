@@ -5,7 +5,7 @@
  * \date 1 July 2019
  * \license MIT License (contact me if too restrictive)
  * \copyright Copyright (c) 2019 Quentin Comte-Gaz
- * \version 1.0
+ * \version 2.0
  */
 
 #include "QPortKnocking.h"
@@ -14,16 +14,23 @@ QPortKnocking::QPortKnocking()
 {
 }
 
-bool QPortKnocking::knock(const QHostAddress& address, const quint16& port1, const quint16& port2, const quint16& port3, const quint16& port4, QString& error)
+bool QPortKnocking::knock(const QHostAddress& address, const QList<quint16>& portSequence, QString& error)
 {
     bool ok = false;
+
+    // Be sure port sequence is valid
+    if (portSequence.size() < 2)
+    {
+        error = QObject::tr("Not enough port to knock (at least 2 port must be specified)");
+        return false;
+    }
 
     // Be sure the address is valid
     if (!address.isNull())
     {
-        // Knock all 4 port
+        // Knock all ports
         bool isFirstPort = true;
-        for (quint16 port : {port1, port2, port3, port4})
+        for (const quint16& port : portSequence)
         {
             // Wait 300 ms between every port to knock
             if (isFirstPort)

@@ -5,7 +5,7 @@
  * \date 1 July 2019
  * \license MIT License (contact me if too restrictive)
  * \copyright Copyright (c) 2019 Quentin Comte-Gaz
- * \version 1.0
+ * \version 2.0
  */
 
 #include <QCoreApplication>
@@ -21,43 +21,42 @@ int main(int argc, char *argv[])
     qDebug() << "Please provide the ip to knock:";
     QString ip = QTextStream(stdin).readLine();
 
-    qDebug() << "Please provide the first port of the port knocking sequence:";
-    bool okPort = false;
-    quint16 port1 = QTextStream(stdin).readLine().toUShort(&okPort);
-    if (!okPort)
+    QList<quint16> ports;
+    bool continueAddPort = true;
+    while(continueAddPort)
     {
-        qCritical("Invalid port 1 (must be a valid port: Unsigned integer)");
-        return 1;
-    }
+        qDebug() << "Please provide one new port for the port knocking sequence (empty to stop adding port):";
+        bool okPort = false;
+        QString portString = QTextStream(stdin).readLine();
+        if (portString.isEmpty())
+        {
+            if (ports.size() < 2)
+            {
+                qCritical("At least two port must be provided for the port knocking sequence");
+                return 1;
+            }
+            else
+            {
+                continueAddPort = false;
+            }
+        }
+        else
+        {
+            quint16 port = portString.toUShort(&okPort);
+            if (!okPort)
+            {
+                qCritical("Invalid port (must be a valid port: Unsigned integer)");
+                return 1;
+            }
 
-    qDebug() << "Please provide the second port of the port knocking sequence:";
-    quint16 port2 = QTextStream(stdin).readLine().toUShort(&okPort);
-    if (!okPort)
-    {
-        qCritical("Invalid port 2 (must be a valid port: Unsigned integer)");
-        return 1;
-    }
-
-    qDebug() << "Please provide the third port of the port knocking sequence:";
-    quint16 port3 = QTextStream(stdin).readLine().toUShort(&okPort);
-    if (!okPort)
-    {
-        qCritical("Invalid port 3 (must be a valid port: Unsigned integer)");
-        return 1;
-    }
-
-    qDebug() << "Please provide the last port of the port knocking sequence:";
-    quint16 port4 = QTextStream(stdin).readLine().toUShort(&okPort);
-    if (!okPort)
-    {
-        qCritical("Invalid port 4 (must be a valid port: Unsigned integer)");
-        return 1;
+            ports.push_back(port);
+        }
     }
 
     // --- Send the port knocking sequence ---
     qDebug() << "Port knocking in progress...";
     QString error;
-    if (!QPortKnocking::knock(QHostAddress(ip), port1, port2, port3, port4, error))
+    if (!QPortKnocking::knock(QHostAddress(ip), ports, error))
     {
         qWarning() << "Failed to Port Knock " << ip << ": " << error;
         return 1;

@@ -5,7 +5,7 @@
  * \date 1 July 2019
  * \license MIT License (contact me if too restrictive)
  * \copyright Copyright (c) 2019 Quentin Comte-Gaz
- * \version 1.0
+ * \version 2.0
  */
 
 #ifndef QPORTKNOCKING_H
@@ -19,13 +19,10 @@ class QPortKnocking
 
 public:
   /*!
-   * \brief knock Knock a specific address with sequence {port1, port2, port3, port4}
+   * \brief knock Knock a specified address with a specified port sequence
    *
-   * \param address[in] Address to port knock
-   * \param port1[in] First port of port knocking sequence
-   * \param port2[in] Second port of port knocking sequence
-   * \param port3[in] Third port of port knocking sequence
-   * \param port4[in] Last port of port knocking sequence
+   * \param address[in] Address to port knock (example: "127.0.0.1")
+   * \param portSequence[in] Port sequence (example: {1001, 1002, 1003, 1004})
    *
    * \param error[out] Error message
    *
@@ -33,7 +30,7 @@ public:
    *
    * \details Blocking function but allowing Qt events to execute during this function (QEventLoop::AllEvents)
    */
-  static bool knock(const QHostAddress& address, const quint16& port1, const quint16& port2, const quint16& port3, const quint16& port4, QString& error);
+  static bool knock(const QHostAddress& address, const QList<quint16>& portSequence, QString& error);
 
 private:
   QPortKnocking();
