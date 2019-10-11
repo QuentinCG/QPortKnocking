@@ -1,5 +1,7 @@
 # Qt4+/Qt5+ Port Knocking library
 
+[![Build Status](https://travis-ci.org/QuentinCG/QPortKnocking.svg?branch=master)](https://travis-ci.org/QuentinCG/QPortKnocking)
+
 ## What is it?
 
 This library (with a basic example) is designed to send a port knocking sequence.
