@@ -1,0 +1,13 @@
+language: cpp
+compiler: gcc
+dist: trusty
+
+install:
+  # Qt5
+  - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev
+  - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
+
+script: 
+  - qmake -qt=qt5
+  - make
+  - ./travis_qmake_gcc_cpp11_qt5
