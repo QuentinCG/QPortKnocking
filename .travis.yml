@@ -1,20 +1,43 @@
 language: cpp
 matrix:
   include:
-  - os: linux
+  - name: Linux (Qt4)
+    os: linux
     dist: xenial
     before_install:
     - sudo apt update -qq
     - sudo apt install build-essential
-    - sudo apt install qtdeclarative5-dev qt5-default
+    - sudo apt install qt4-default
     compiler:
-    - clang
     - gcc
     script:
-    - echo $TRAVIS_TAG
     - qmake QPortKnocking.pro
     - make -j4
-  - os: osx
+  - name: Linux (Qt5)
+    os: linux
+    dist: xenial
+    before_install:
+    - sudo apt update -qq
+    - sudo apt install build-essential
+    - sudo apt install qt5-default
+    compiler:
+    - gcc
+    script:
+    - qmake QPortKnocking.pro
+    - make -j4
+  - name: OSX (Qt4)
+    os: osx
+    osx_image: xcode7.2
+    before_install:
+    - brew tap cartr/qt4
+    - brew tap-pin cartr/qt4
+    - brew install qt@4
+    script:
+    - qmake -spec macx-xcode QPortKnocking.pro
+    - xcodebuild -list -project QPortKnocking.xcodeproj
+    - xcodebuild -scheme QPortKnocking build
+   - name: OSX (Qt5)
+    os: osx
     osx_image: xcode7.2
     before_install:
     - brew install qt5
