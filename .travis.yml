@@ -11,7 +11,10 @@ matrix:
     compiler:
     - gcc
     script:
-    - qmake QPortKnocking.pro
+    - qmake CONFIG+=release QPortKnocking.pro
+    - make -j4
+    - make clean
+    - qmake CONFIG+=debug QPortKnocking.pro
     - make -j4
   - name: Linux (Qt5)
     os: linux
@@ -23,7 +26,10 @@ matrix:
     compiler:
     - gcc
     script:
-    - qmake QPortKnocking.pro
+    - qmake CONFIG+=release QPortKnocking.pro
+    - make -j4
+    - make clean
+    - qmake CONFIG+=debug QPortKnocking.pro
     - make -j4
   - name: OSX (Qt4)
     os: osx
