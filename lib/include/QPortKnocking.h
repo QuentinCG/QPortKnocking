@@ -14,7 +14,9 @@
 #include <QObject>
 #include <QtNetwork>
 
-class QPortKnocking
+#include "QPortKnocking_global.h"
+
+class QPORTKNOCKINGSHARED_EXPORT QPortKnocking
 {
 
 public:

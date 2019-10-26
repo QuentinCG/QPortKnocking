@@ -14,11 +14,13 @@ This class should work with any Qt4 and Qt5 version but was fully tested with <a
 
 ## How to build
 
-1) Download <a target="_blank" href="https://github.com/QuentinCG/QPortKnocking/releases/download/2.0.0/QPortKnocking_v2_0_0.zip">latest release</a> (and launch executable if you don't want to build it yourself)
+1) Download <a target="_blank" href="https://github.com/QuentinCG/QPortKnocking/releases/download/2.0.0/QPortKnocking_v2_0_0.zip">latest release</a> (and launch executable if you just want to have a basic tool)
 
-2) Open the <a href="https://github.com/QuentinCG/QPortKnocking/blob/master/QPortKnocking.pro">QPortKnocking.pro</a> project from <a href="https://download.qt.io/archive/qt/">QtCreator</a> (or add the <a href="https://github.com/QuentinCG/QPortKnocking/blob/master/include/QPortKnocking.h">QPortKnocking.h</a> and <a href="https://github.com/QuentinCG/QPortKnocking/blob/master/src/QPortKnocking.cpp">QPortKnocking.cpp</a> files into your project and add `QT += core` and `QT += network` in your pro file)
+2) Add the QPortKnocking library into your project like done in <a href="https://github.com/QuentinCG/QPortKnocking/blob/master/example/example.pro">example.pro</a> project.
 
-3) Build and launch the project to see the result in the command line
+3) Include <a href="https://github.com/QuentinCG/QPortKnocking/blob/master/lib/QPortKnocking.h">QPortKnocking.h</a> in your project and use it.
+
+4) Build and launch your project.
 
 
 ## License

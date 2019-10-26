@@ -11,7 +11,7 @@
 #include <QCoreApplication>
 #include <QDebug>
 
-#include "QPortKnocking.h"
+#include <QPortKnocking.h>
 
 int main(int argc, char *argv[])
 {
