@@ -8,14 +8,27 @@ matrix:
     - sudo apt update -qq
     - sudo apt install build-essential
     - sudo apt install qt4-default
+    # Dependency for test coverage
+    - sudo apt install gcov
+    - sudo pip install codecov
     compiler:
     - g++
     script:
+    # Build library and test in release
     - qmake CONFIG+=release QPortKnocking.pro
     - make
+    # Launch test
+    - ./test/test
+    # Launch test coverage
+    - ./test/get_code_cov.sh >/dev/null
+    - codecov >/dev/null
+    # Build library and test in debug
     - make clean -j4
     - qmake CONFIG+=debug QPortKnocking.pro
     - make
+    after_success:
+    # Codecov
+    - bash <(curl -s https://codecov.io/bash)
   - name: Linux (Qt5)
     os: linux
     dist: xenial
