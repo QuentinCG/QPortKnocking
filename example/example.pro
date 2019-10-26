@@ -24,4 +24,4 @@ DEPENDPATH += \
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../lib/release/ -lQPortKnocking
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../lib/debug/ -lQPortKnockingd
-else:unix: LIBS += -L$$OUT_PWD/../lib/ -lQPortKnocking
+else:unix: LIBS += -L$$OUT_PWD/../lib/ -llibQPortKnocking
