@@ -9,6 +9,7 @@
 *.dll
 *.exe
 *.dylib
+*.gcno
 
 # Qt-es
 object_script.*.Release
