@@ -23,6 +23,7 @@ matrix:
     - ./test/test
     # Launch test coverage
     - sudo gcov -n -o . lib/src/QPortKnocking.cpp > /dev/null
+    - sudo gcov -n -o . test/main.cpp > /dev/null
     - codecov > /dev/null
     # Build library and test in debug
     - make clean -j4
