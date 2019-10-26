@@ -18,7 +18,7 @@ This class should work with any Qt4 and Qt5 version but was fully tested with <a
 
 2) Add the QPortKnocking library into your project like done in <a href="https://github.com/QuentinCG/QPortKnocking/blob/master/example/example.pro">example.pro</a> project.
 
-3) Include <a href="https://github.com/QuentinCG/QPortKnocking/blob/master/lib/QPortKnocking.h">QPortKnocking.h</a> in your project and use it.
+3) Include <a href="https://github.com/QuentinCG/QPortKnocking/blob/master/lib/include/QPortKnocking.h">QPortKnocking.h</a> in your project and use it.
 
 4) Build and launch your project.
 
