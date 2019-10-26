@@ -1,0 +1,5 @@
+languages:
+- cpp
+exclude:
+- test/externals/*
+- example/*
