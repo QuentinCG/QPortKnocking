@@ -4,6 +4,7 @@ QT += network
 QT -= gui
 
 CONFIG += c++11
+QMAKE_CXXFLAGS += -std=c++11
 
 CONFIG(release, debug|release): TARGET = example
 CONFIG(debug, debug|release): TARGET = exampled
