@@ -17,17 +17,17 @@ matrix:
     # Build library and test in release
     - qmake CONFIG+=release QPortKnocking.pro
     - make
-    # Launch test
-    - LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/lib/
-    - export LD_LIBRARY_PATH
-    - ./test/test
-    # Launch test coverage
-    - sudo gcov -n -o . lib/src/QPortKnocking.cpp > /dev/null
-    - codecov > /dev/null
     # Build library and test in debug
     - make clean -j4
     - qmake CONFIG+=debug QPortKnocking.pro
     - make
+    # Launch test
+    - LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/lib/
+    - export LD_LIBRARY_PATH
+    - ./test/testd
+    # Launch test coverage (in linux debug mode only)
+    - sudo gcov -n -o . lib/src/QPortKnocking.cpp > /dev/null
+    - codecov > /dev/null
     after_success:
     # Push code coverage result into codecov.io
     - bash <(curl -s https://codecov.io/bash)

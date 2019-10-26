@@ -7,7 +7,7 @@ CONFIG += c++11
 QMAKE_CXXFLAGS += -std=c++11
 
 CONFIG(release, debug|release): TARGET = example
-CONFIG(debug, debug|release): TARGET = exampled
+else:CONFIG(debug, debug|release): TARGET = exampled
 
 CONFIG += console
 CONFIG -= app_bundle
@@ -23,7 +23,11 @@ INCLUDEPATH += \
 DEPENDPATH += \
            $$PWD/../lib
 
-win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../lib/release/ -lQPortKnocking
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../lib/debug/ -lQPortKnockingd
-else:unix:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../lib/ -lQPortKnocking
-else:unix:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../lib/ -lQPortKnockingd
+win32:  {
+  CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../lib/release/ -lQPortKnocking
+  else:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../lib/debug/ -lQPortKnockingd
+}
+else:unix: {
+  CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../lib/ -lQPortKnocking
+  else:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../lib/ -lQPortKnockingd
+}
