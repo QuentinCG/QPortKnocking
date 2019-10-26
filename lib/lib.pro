@@ -23,3 +23,9 @@ HEADERS += \
 
 INCLUDEPATH += \
            include/
+
+# Test coverage (linux only)
+unix:!macx {
+  QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
+  LIBS += -lgcov
+}
