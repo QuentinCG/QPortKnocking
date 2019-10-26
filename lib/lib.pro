@@ -5,7 +5,6 @@ QT -= gui
 
 DEFINES += QPORTKNOCKING_LIBRARY
 
-
 CONFIG += c++11
 QMAKE_CXXFLAGS += -std=c++11
 
@@ -24,8 +23,8 @@ HEADERS += \
 INCLUDEPATH += \
            include/
 
-# Test coverage (if requested only)
-TEST_COVERAGE: {
+# -- Test coverage (if requested only) --
+TEST_COVERAGE {
   QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
   LIBS += -lgcov
 }

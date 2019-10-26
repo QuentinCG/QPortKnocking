@@ -14,20 +14,20 @@ matrix:
     compiler:
     - g++
     script:
-    # Build library and test in release
-    - qmake CONFIG+=release QPortKnocking.pro
-    - make
-    # Build library and test in debug
-    - make clean -j4
-    - qmake CONFIG+=debug CONFIG+=TEST_COVERAGE QPortKnocking.pro
+    # Build library (+example+test) in release (and with test coverage)
+    - qmake CONFIG+=release CONFIG+=TEST_COVERAGE QPortKnocking.pro
     - make
     # Launch test
     - LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/lib/
     - export LD_LIBRARY_PATH
     - ./test/test
-    # Launch test coverage (in linux debug mode only)
+    # Launch test coverage
     - sudo gcov -n -o . lib/src/QPortKnocking.cpp > /dev/null
     - codecov > /dev/null
+    # Build library (+example+test) in debug
+    - make clean -j4
+    - qmake CONFIG+=debug QPortKnocking.pro
+    - make
     after_success:
     # Push code coverage result into codecov.io
     - bash <(curl -s https://codecov.io/bash)
