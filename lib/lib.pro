@@ -24,8 +24,8 @@ HEADERS += \
 INCLUDEPATH += \
            include/
 
-# Test coverage (linux in debug only)
-unix:!macx:CONFIG(debug, debug|release): {
+# Test coverage (if requested only)
+TEST_COVERAGE: {
   QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
   LIBS += -lgcov
 }

@@ -19,7 +19,7 @@ matrix:
     - make
     # Build library and test in debug
     - make clean -j4
-    - qmake CONFIG+=debug QPortKnocking.pro
+    - qmake CONFIG+=debug CONFIG+=TEST_COVERAGE QPortKnocking.pro
     - make
     # Launch test
     - LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/lib/
