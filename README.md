@@ -1,6 +1,7 @@
 # Qt4+/Qt5+ Port Knocking library
 
-[![Build Status](https://travis-ci.org/QuentinCG/QPortKnocking.svg?branch=master)](https://travis-ci.org/QuentinCG/QPortKnocking) [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/QuentinCG/QPortKnocking/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/QuentinCG/QPortKnocking.svg?branch=master)](https://travis-ci.org/QuentinCG/QPortKnocking) [![codecov](https://codecov.io/gh/QuentinCG/QPortKnocking/branch/master/graph/badge.svg)](https://codecov.io/gh/QuentinCG/QPortKnocking)
+ [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/QuentinCG/QPortKnocking/blob/master/LICENSE)
 
 
 

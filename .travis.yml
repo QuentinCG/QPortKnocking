@@ -9,8 +9,8 @@ matrix:
     - sudo apt install build-essential
     - sudo apt install qt4-default
     # Dependency for test coverage
-    - sudo apt install gcov
-    - sudo pip install codecov
+    - sudo apt install python3-pip
+    - sudo pip3 install codecov
     compiler:
     - g++
     script:
@@ -18,17 +18,20 @@ matrix:
     - qmake CONFIG+=release QPortKnocking.pro
     - make
     # Launch test
+    - sudo /sbin/ldconfig -v
+    - LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/lib/
+    - export LD_LIBRARY_PATH
     - ./test/test
     # Launch test coverage
-    - ./test/get_code_cov.sh >/dev/null
-    - codecov >/dev/null
+    #- sudo ./test/get_code_cov.sh >/dev/null
+    #- codecov >/dev/null
     # Build library and test in debug
     - make clean -j4
     - qmake CONFIG+=debug QPortKnocking.pro
     - make
-    after_success:
+    #after_success:
     # Codecov
-    - bash <(curl -s https://codecov.io/bash)
+    #- bash <(curl -s https://codecov.io/bash)
   - name: Linux (Qt5)
     os: linux
     dist: xenial
