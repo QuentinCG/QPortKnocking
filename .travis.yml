@@ -24,7 +24,7 @@ matrix:
     # Launch test
     - LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/lib/
     - export LD_LIBRARY_PATH
-    - ./test/testd
+    - ./test/test
     # Launch test coverage (in linux debug mode only)
     - sudo gcov -n -o . lib/src/QPortKnocking.cpp > /dev/null
     - codecov > /dev/null
