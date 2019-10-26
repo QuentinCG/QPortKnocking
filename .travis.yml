@@ -22,7 +22,7 @@ matrix:
     - export LD_LIBRARY_PATH
     - ./test/test
     # Launch test coverage
-    - sudo ./get_code_cov.sh > /dev/null
+    - sudo gcov -n -o . lib/src/QPortKnocking.cpp > /dev/null
     - codecov > /dev/null
     # Build library and test in debug
     - make clean -j4
