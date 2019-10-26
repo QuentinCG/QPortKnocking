@@ -15,6 +15,17 @@
 
 #include <QPortKnocking.h>
 
+TEST_CASE("Create and use instance")
+{
+    QPortKnocking portKnockingInstance;
+    QHostAddress addr("127.0.0.1");
+    QList<quint16> ports({1000, 1001});
+    QString error;
+
+    REQUIRE(portKnockingInstance.knock(addr, ports, error) == true);
+    REQUIRE(error.isEmpty() == true);
+}
+
 TEST_CASE("Invalid IP address")
 {
     QHostAddress addr("127.0.0.999");

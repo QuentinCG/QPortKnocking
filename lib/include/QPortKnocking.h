@@ -21,6 +21,11 @@ class QPORTKNOCKINGSHARED_EXPORT QPortKnocking
 
 public:
   /*!
+   * \brief QPortKnocking Basic instance of port knocking class (Not mandatory since all function are static)
+   */
+  QPortKnocking();
+
+  /*!
    * \brief knock Knock a specified address with a specified port sequence
    *
    * \param address[in] Address to port knock (example: "127.0.0.1")
@@ -33,9 +38,6 @@ public:
    * \details Blocking function but allowing Qt events to execute during this function (QEventLoop::AllEvents)
    */
   static bool knock(const QHostAddress& address, const QList<quint16>& portSequence, QString& error);
-
-private:
-  QPortKnocking();
 };
 
 #endif // QPORTKNOCKING_H

@@ -35,10 +35,3 @@ else:unix: {
   CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../lib/ -lQPortKnocking
   CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../lib/ -lQPortKnockingd
 }
-
-# Test coverage (linux only)
-unix:!macx {
-  QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
-  LIBS += -lgcov
-}
-
