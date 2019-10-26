@@ -13,7 +13,8 @@ matrix:
     script:
     - qmake CONFIG+=release QPortKnocking.pro
     - make -j4
-    - make clean
+    - find lib -type f -printf "%T@ %p\n" | sort -nr | cut -d\  -f2-
+    - make clean -j4
     - qmake CONFIG+=debug QPortKnocking.pro
     - make -j4
   - name: Linux (Qt5)
@@ -28,7 +29,7 @@ matrix:
     script:
     - qmake CONFIG+=release QPortKnocking.pro
     - make -j4
-    - make clean
+    - make clean -j4
     - qmake CONFIG+=debug QPortKnocking.pro
     - make -j4
   #- name: OSX (Qt4)
