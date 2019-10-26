@@ -12,11 +12,11 @@ matrix:
     - gcc
     script:
     - qmake CONFIG+=release QPortKnocking.pro
-    - make -j4
+    - make
     - find lib -type f -printf "%T@ %p\n" | sort -nr | cut -d\  -f2-
     - make clean -j4
     - qmake CONFIG+=debug QPortKnocking.pro
-    - make -j4
+    - make
   - name: Linux (Qt5)
     os: linux
     dist: xenial
@@ -28,10 +28,10 @@ matrix:
     - gcc
     script:
     - qmake CONFIG+=release QPortKnocking.pro
-    - make -j4
+    - make
     - make clean -j4
     - qmake CONFIG+=debug QPortKnocking.pro
-    - make -j4
+    - make
   #- name: OSX (Qt4)
   #  os: osx
   #  osx_image: xcode7.2
