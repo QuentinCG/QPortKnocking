@@ -46,19 +46,19 @@ matrix:
     - make clean -j4
     - qmake CONFIG+=debug QPortKnocking.pro
     - make
-  - name: OSX (Qt4)
-    os: osx
-    osx_image: xcode9.2
-    before_install:
-    - HOMEBREW_NO_AUTO_UPDATE=1 brew tap cartr/qt4
-    - HOMEBREW_NO_AUTO_UPDATE=1 brew tap-pin cartr/qt4
-    - HOMEBREW_NO_AUTO_UPDATE=1 brew install qt@4
-    compiler:
-    - g++
-    script:
-    - qmake -spec macx-xcode -recursive CONFIG+=release QPortKnocking.pro
-    - xcodebuild -list -project QPortKnocking.xcodeproj
-    - xcodebuild -scheme QPortKnocking build
+  #- name: OSX (Qt4)
+  #  os: osx
+  #  osx_image: xcode9.2
+  #  before_install:
+  #  - HOMEBREW_NO_AUTO_UPDATE=1 brew tap cartr/qt4
+  #  - HOMEBREW_NO_AUTO_UPDATE=1 brew tap-pin cartr/qt4
+  #  - HOMEBREW_NO_AUTO_UPDATE=1 brew install qt@4
+  #  compiler:
+  #  - g++
+  #  script:
+  #  - qmake -spec macx-xcode -recursive CONFIG+=release QPortKnocking.pro
+  #  - xcodebuild -list -project QPortKnocking.xcodeproj
+  #  - xcodebuild -scheme QPortKnocking build
   - name: OSX (Qt5)
     os: osx
     osx_image: xcode9.2
