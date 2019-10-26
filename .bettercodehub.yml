@@ -1,5 +1,8 @@
 languages:
-- cpp
-exclude:
-- test/externals/*
-- example/*
+- name: cpp
+  production:
+    include:
+      - /lib/*
+  test:
+    include:
+      - /test/main.cpp
