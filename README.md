@@ -28,7 +28,7 @@ This class should work with any Qt4 and Qt5 version but was fully tested with <a
 ...
 
 QHostAddress addr("127.0.0.1");
-QList<quint16> ports({1000, 1001, 1002, 10003});
+QList<quint16> ports({1000, 1001, 1002, 1003});
 QString error;
 
 QPortKnocking::knock(addr, ports, error);
