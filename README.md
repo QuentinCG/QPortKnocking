@@ -1,7 +1,7 @@
 # Qt4+/Qt5+ Port Knocking library
 
 [![Build Status](https://travis-ci.org/QuentinCG/QPortKnocking.svg?branch=master)](https://travis-ci.org/QuentinCG/QPortKnocking) [![codecov](https://codecov.io/gh/QuentinCG/QPortKnocking/branch/master/graph/badge.svg)](https://codecov.io/gh/QuentinCG/QPortKnocking)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d1075a52fb99494cb947dbd556425a81)](https://www.codacy.com/manual/QuentinCG/QPortKnocking?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=QuentinCG/QPortKnocking&amp;utm_campaign=Badge_Grade) [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/QuentinCG/QPortKnocking/blob/master/LICENSE)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d1075a52fb99494cb947dbd556425a81)](https://www.codacy.com/manual/QuentinCG/QPortKnocking?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=QuentinCG/QPortKnocking&amp;utm_campaign=Badge_Grade) [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/QuentinCG/QPortKnocking/blob/master/LICENSE) [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/QuentinCG)
 
 ## What is it
 
