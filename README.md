@@ -7,17 +7,19 @@
 
 This library (with a basic example) is designed to send a port knocking sequence.
 
-This class should work with any Qt4 and Qt5 version but was fully tested with <a href="https://download.qt.io/archive/qt/5.13/5.13.0/">Qt 5.13.0</a> and <a href="https://download.qt.io/archive/qt/4.8/4.8.7/">Qt 4.8.7</a> (only required libraries: QtNetwork and QtCore)
+This class works with any Qt4 and Qt5 version (only required libraries: QtNetwork and QtCore)
 
 <img src="portknocking.jpg" width="300">
 
 ## How to build
 
-1) Download <a target="_blank" href="https://github.com/QuentinCG/QPortKnocking/releases/download/2.0.0/QPortKnocking_v2_0_0.zip">latest release</a> (and launch executable if you just want to have a basic tool)
+1) Download this repository
 
-2) Add the QPortKnocking library into your project like done in <a href="https://github.com/QuentinCG/QPortKnocking/blob/master/example/example.pro">example.pro</a> project.
+2) Build the project to generate the library with <a href="https://download.qt.io/archive/qt/">QtCreator</a>
 
-3) Include <a href="https://github.com/QuentinCG/QPortKnocking/blob/master/lib/include/QPortKnocking.h">QPortKnocking.h</a> in your project and use the library like this:
+3) Add the QPortKnocking library into your project like done in <a href="https://github.com/QuentinCG/QPortKnocking/blob/master/example/example.pro">example.pro</a> project.
+
+4) Include <a href="https://github.com/QuentinCG/QPortKnocking/blob/master/lib/include/QPortKnocking.h">QPortKnocking.h</a> in your project and use the library like this:
 ```cpp
 #include <QPortKnocking.h>
 
@@ -30,7 +32,7 @@ QString error;
 QPortKnocking::knock(addr, ports, error);
 ```
 
-4) Build and launch your project.
+5) Build and launch your project.
 
 ## License
 
