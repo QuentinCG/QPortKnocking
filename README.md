@@ -22,6 +22,7 @@ This class works with any Qt4 and Qt5 version (only required libraries: QtNetwor
 4) Include <a href="https://github.com/QuentinCG/QPortKnocking/blob/master/lib/include/QPortKnocking.h">QPortKnocking.h</a> in your project and use the library like this:
 ```cpp
 #include <QPortKnocking.h>
+#include <QDebug>
 
 ...
 
@@ -29,7 +30,14 @@ QHostAddress addr("127.0.0.1");
 QList<quint16> ports({1000, 1001, 1002, 1003});
 QString error;
 
-QPortKnocking::knock(addr, ports, error);
+if (QPortKnocking::knock(addr, ports, error))
+{
+    qDebug() << "Successful knock";
+}
+else
+{
+    qDebug() << "Error during knock: " << error;
+}
 ```
 
 5) Build and launch your project.
